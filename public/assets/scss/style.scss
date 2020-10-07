@@ -1,0 +1,376 @@
+@import "var";
+@import "responsive";
+@import "ultis";
+@import "reset";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #eaeded;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  .header {
+    padding: 1rem 0;
+    &__logo {
+      width: 150px;
+      object-fit: contain;
+    }
+    &__menu {
+      ul {
+        display: flex;
+        list-style-type: none;
+        margin: 0;
+        li {
+          margin: 0.3rem 1rem;
+          a {
+            color: $color-white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: 0.3s ease-in-out;
+            &:hover {
+              color: $color-pink;
+            }
+          }
+        }
+        .active {
+          &::before {
+          }
+        }
+      }
+    }
+
+    &__right {
+      .header__rightItem {
+        padding: 0.8rem 1rem;
+        color: $color-white;
+        text-decoration: none;
+        border-radius: 1rem;
+        transition: 0.3s ease-in-out;
+        &:hover {
+          background-color: rgba($color: #000000, $alpha: 0.5);
+        }
+      }
+    }
+    .header__rightUser {
+      position: relative;
+      background-color: $color-white;
+      padding: 0.5rem;
+      border-radius: 2rem;
+      cursor: pointer;
+      i {
+        margin: 0 0.3rem;
+      }
+      .header__userMenu {
+        position: absolute;
+        background-color: $color-white;
+        width: 200px;
+        top: 120%;
+        border-radius: 0.8rem;
+        left: -200%;
+        ul {
+          display: none;
+          list-style-type: none;
+          margin: 0;
+          li {
+            padding: 0.5rem 1rem;
+            a {
+              color: $color-black;
+              text-decoration: none;
+              transition: 0.3s ease-in-out;
+              &:hover {
+                color: $color-pink;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.header-mobile {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  z-index: 1000;
+  right: 0;
+  left: 0;
+  background: $color-white;
+  ul {
+    display: flex;
+    list-style-type: none;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    li {
+      a {
+        text-decoration: none;
+        color: $color-black;
+        transition: 0.3s ease-in-out;
+        &:hover {
+          color: $color-pink;
+        }
+        .header-mobile__item {
+          justify-content: center;
+          align-items: center;
+          display: flex;
+          flex-direction: column;
+          p {
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+.banner {
+  height: 90vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  .clientForm {
+    background-color: $color-white;
+    padding: 10px 15px;
+    border-radius: 2rem;
+    margin-bottom: 120px;
+    form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      i {
+      }
+      .clientForm__item {
+        margin: 0 1rem;
+      }
+      .selection {
+        .select2-selection.select2-selection--single {
+          border: none;
+          outline: none;
+        }
+      }
+    }
+  }
+  .heading {
+    width: 100%;
+    color: $color-white;
+  }
+}
+
+.dd-w.dd-bottom {
+  top: 25px;
+}
+
+.topMotel {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  .headLine {
+    @include headLine;
+  }
+  .subHeadLine {
+    @include subHeadLine;
+  }
+}
+
+// Single post
+.singlePost {
+  background-color: $color-white;
+  border-radius: 0.8rem;
+  transition: 0.3s ease-in-out;
+  margin: 1rem 0;
+  &:hover {
+    box-shadow: 0 10px 26px 0 rgba(0, 0, 0, 0.75);
+  }
+  a {
+    text-decoration: none;
+    color: $color-black;
+    img {
+      border-top-left-radius: 1rem;
+      border-top-right-radius: 1rem;
+      width: 100%;
+      object-fit: contain;
+    }
+    .singlePost__content {
+      padding: 1rem;
+      h3 {
+        font-size: 1.4rem;
+        margin: 0;
+      }
+      .rating {
+        padding: 5px 0;
+        color: $color-yellow;
+      }
+      p {
+        font-size: 1rem;
+        margin: 0;
+      }
+    }
+  }
+}
+
+footer {
+  margin-top: 60px;
+  background: lightgray;
+  p {
+    margin: 0;
+  }
+}
+
+.more {
+  @include seemore;
+}
+
+.places {
+  margin-bottom: 5rem;
+}
+
+// ---------------Blog page--------------------------------
+
+.pageTitle {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  background-image: url("https://cdn1.ivivu.com/iVivu/2020/03/05/14/bangkok-cr-370x190.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  color: $color-white;
+  padding-bottom: 30px;
+  padding-top: 60px;
+  h1 {
+    @include headLine;
+  }
+}
+
+.postList {
+  margin-top: 60px;
+  .pagi {
+    .pagination {
+      @include pagination;
+      justify-content: center;
+      margin: 30px 0;
+    }
+  }
+}
+
+// ---------------End Blog page--------------------------------
+
+// ----------------------Single Post ----------------------------
+.singlePostBanner {
+  height: 60vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    font-size: 3rem;
+  }
+}
+
+.singlePostContent {
+  margin-top: 60px;
+}
+
+.relatedPost {
+  margin-top: 60px;
+}
+
+.addComment {
+  margin-bottom: 30px;
+  h4 {
+    font-size: 1rem;
+  }
+  form {
+    button {
+      margin-top: 1rem;
+    }
+  }
+}
+
+.comments {
+  margin-top: 60px;
+  .headLine {
+    margin-bottom: 30px;
+  }
+  .singleComment {
+    margin-bottom: 30px;
+    display: flex;
+    .singleComment__image {
+      margin-right: 2rem;
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      border-radius: 50%;
+    }
+    .singleComment__details {
+      .singleComment__name {
+        font-size: 1.3rem;
+        font-weight: 500;
+      }
+      .singleComment__date {
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: $color-lightgray;
+      }
+    }
+  }
+}
+
+// ----------------------End Single Post -------------------------
+
+.breadcrumb {
+  background-color: transparent;
+  justify-content: center;
+  color: $color-black;
+  .breadcrumb-item {
+  }
+  .active {
+    color: $color-pink;
+  }
+}
+
+// Masonry
+.grid {
+  .grid-item,
+  .grid-sizer {
+    width: 19%;
+  }
+  .grid-item {
+    border-radius: 1rem;
+    margin-bottom: 20px;
+    float: left;
+    height: 200px;
+    position: relative;
+    background-size: cover;
+    display: flex;
+    align-items: flex-end;
+    padding: 1rem;
+    .content {
+      p {
+        margin: 0;
+      }
+    }
+  }
+  .grid-item--width2 {
+    width: 38%;
+  }
+  .grid-item--height2 {
+    height: 300px;
+  }
+}
+
+.scrolled {
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 1000;
+}

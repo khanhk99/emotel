@@ -1,0 +1,148 @@
+$color-white: #ffffff;
+$color-pink: #ff385c;
+$color-black: #000000;
+$color-yellow: #ffc83d;
+$color-lightgray: #ccc;
+
+@mixin headLine {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+@mixin subHeadLine {
+  font-size: 1.2rem;
+  margin-bottom: 2.2rem;
+}
+
+@mixin seemore {
+  display: block;
+  text-align: center;
+  color: $color-black;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: 0.3s ease-in-out;
+  &:hover {
+    color: $color-pink;
+    text-decoration: none;
+  }
+}
+
+@mixin pagination {
+  color: $color-pink;
+  .page-item {
+    .page-link {
+      color: $color-pink;
+    }
+  }
+  .active {
+    .page-link {
+      color: $color-white;
+      background-color: $color-pink;
+      border: 1px solid $color-pink;
+    }
+  }
+}
+
+.s-content ol {
+  list-style: decimal;
+  margin-left: 15px;
+  margin-bottom: 10px;
+}
+.s-content ul {
+  list-style: initial;
+  margin-left: 15px;
+  margin-bottom: 10px;
+}
+.s-content li {
+  list-style: inherit;
+  margin-bottom: 5px;
+}
+.s-content p {
+  margin-bottom: 10px;
+}
+.s-content img {
+  display: inline-block;
+  max-width: 100%;
+  margin: 10px 0;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain;
+}
+.s-content table,
+.s-content iframe {
+  max-width: 100%;
+}
+.s-content a {
+  color: #e45200;
+}
+.s-content table {
+  border-collapse: collapse;
+  width: 100%;
+  border: solid 1px #ebebeb;
+}
+.s-content table td {
+  border-collapse: collapse;
+  border: solid 1px #ebebeb;
+  padding: 3px;
+}
+.s-content h1 {
+  display: block;
+  font-size: 2em;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+.s-content h2 {
+  display: block;
+  font-size: 1.5em;
+  margin-top: 0.83em;
+  margin-bottom: 0.83em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+.s-content h3 {
+  display: block;
+  font-size: 1.17em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+.s-content h4 {
+  display: block;
+  font-size: 1em;
+  margin-top: 1.33em;
+  margin-bottom: 1.33em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+.s-content h5 {
+  display: block;
+  font-size: 0.83em;
+  margin-top: 1.67em;
+  margin-bottom: 1.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+.s-content h6 {
+  display: block;
+  font-size: 0.67em;
+  margin-top: 2.33em;
+  margin-bottom: 2.33em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+
+.s-social .fb_iframe_widget,
+.s-social a.pinterest {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: -1px;
+}
