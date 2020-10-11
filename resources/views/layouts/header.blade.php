@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+@php
+    use Illuminate\Support\Facades\Auth;
+    $user = Auth::user();
+@endphp
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
@@ -47,16 +51,87 @@
             <div class="header__right">
                 <a href="#" class="header__rightItem">Trở thành chủ nhà/người tổ chức</a>
             </div>
-            <div class="header__rightUser">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-user"></i>
-                <div class="header__userMenu">
-                    <ul>
-                        <li><a href="{{ url('register') }}">Đăng ký</a></li>
-                        <li><a href="{{ url('login') }}">Đăng nhập</a></li>
-                    </ul>
+            @if(\Illuminate\Support\Facades\Auth::check())
+                <div class="header__rightUser">
+                    <i class="fas fa-bars"></i>
+                    <span>{{ $user->name }}</span>
+                    <div class="header__userMenu">
+                        <ul>
+                            <!-- Account Management -->
+                            <li class="block px-4 py-2 text-xs text-gray-400">
+                                {{ __('Quản lý tài khoản') }}
+                            </li>
+
+                            <li>
+                                <a href="{{ route('profile.show') }}">{{ __('Hồ sơ') }}</a>
+                            </li>
+
+                            @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
+                                <li>
+                                    <a href="{{ route('api-tokens.index') }}">{{ __('API Tokens') }}</a>
+                                </li>
+                            @endif
+
+                            <div class="border-t border-gray-100"></div>
+
+                            <!-- Team Management -->
+                            @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
+                                <li class="block px-4 py-2 text-xs text-gray-400">
+                                    {{ __('Manage Team') }}
+                                </li>
+
+                                <!-- Team Settings -->
+                                <li>
+                                    <a href="{{ route('teams.show', Auth::user()->currentTeam->id) }}">{{ __('Team Settings') }}</a>
+                                </li>
+
+                                @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
+                                    <li>
+                                        <a href="{{ route('teams.create') }}">{{ __('Create New Team') }}</a>
+                                    </li>
+                                @endcan
+
+                                <div class="border-t border-gray-100"></div>
+
+                                <!-- Team Switcher -->
+                                <li class="block px-4 py-2 text-xs text-gray-400">
+                                    {{ __('Switch Teams') }}
+                                </li>
+
+                                @foreach (Auth::user()->allTeams() as $team)
+                                    <x-jet-switchable-team :team="$team"/>
+                                @endforeach
+
+                                <div class="border-t border-gray-100"></div>
+                        @endif
+
+                        <!-- Authentication -->
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+
+                                <li>
+                                    <a href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                            this.closest('form').submit();">
+                                        {{ __('Đăng xuất') }}
+                                    </a>
+                                </li>
+                            </form>
+                        </ul>
+                    </div>
                 </div>
-            </div>
+            @else
+                <div class="header__rightUser">
+                    <i class="fas fa-bars"></i>
+                    <i class="fas fa-user"></i>
+                    <div class="header__userMenu">
+                        <ul>
+                            <li><a href="{{ url('register') }}">Đăng ký</a></li>
+                            <li><a href="{{ url('login') }}">Đăng nhập</a></li>
+                        </ul>
+                    </div>
+                </div>
+            @endif
         </div>
     </div>
 </header>

@@ -53,14 +53,24 @@
 <div class="limiter">
     <div class="container-login100">
         <div class="wrap-login100">
-            <form class="login100-form validate-form" method="post" action="{{ route('register') }}">
+            <form class="login100-form validate-form" method="POST" action="{{ route('register') }}">
                 @csrf
                 <span class="login100-form-title p-b-43"> Đăng ký </span>
+
+                <div
+                    class="wrap-input100 validate-input"
+                    data-validate="Không được bỏ trống"
+                >
+                    <input class="input100" id="name" type="text" name="name" :value="old('name')" required autofocus autocomplete="name"/>
+                    <span class="focus-input100"></span>
+                    <span class="label-input100">Tên hiển thị</span>
+                </div>
+
                 <div
                     class="wrap-input100 validate-input"
                     data-validate="Email không hợp lệ: ex@abc.xyz"
                 >
-                    <input class="input100" type="email" name="email" :value="old('email')" required />
+                    <input class="input100" id="email" type="email" name="email" :value="old('email')" required />
                     <span class="focus-input100"></span>
                     <span class="label-input100">Email</span>
                 </div>
@@ -69,16 +79,16 @@
                     class="wrap-input100 validate-input"
                     data-validate="Không được bỏ trống"
                 >
-                    <input class="input100" type="text" name="text" :value="old('name')" required autofocus autocomplete="name"/>
+                    <input class="input100" id="username" type="text" name="username" :value="old('username')" required autofocus autocomplete="username"/>
                     <span class="focus-input100"></span>
-                    <span class="label-input100">Tên tài khoản</span>
+                    <span class="label-input100">Tên đăng nhập</span>
                 </div>
 
                 <div
                     class="wrap-input100 validate-input"
                     data-validate="Không được bỏ trống"
                 >
-                    <input class="input100" type="password" name="password"  required autocomplete="new-password" />
+                    <input class="input100" id="password" type="password" name="password"  required autocomplete="new-password" />
                     <span class="focus-input100"></span>
                     <span class="label-input100">Mật khẩu</span>
                 </div>
@@ -87,7 +97,7 @@
                     class="wrap-input100 validate-input"
                     data-validate="Không được bỏ trống"
                 >
-                    <input class="input100" type="password" name="password_confirmation" required autocomplete="new-password"  />
+                    <input class="input100" id="password_confirmation" type="password" name="password_confirmation" required autocomplete="new-password"  />
                     <span class="focus-input100"></span>
                     <span class="label-input100">Nhập lại mật khẩu</span>
                 </div>

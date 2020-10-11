@@ -76,8 +76,7 @@ Route::group(['prefix' => 'admin'], function(){
 //Frontend
 Route::get('/','App\Http\Controllers\HomeController@index');
 Route::get('posts','App\Http\Controllers\NewsController@index');
-//Route::get('login','App\Http\Controllers\UserController@getLogin');
-//Route::get('register','App\Http\Controllers\UserController@getRegister');
+
 //endFrontend
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
