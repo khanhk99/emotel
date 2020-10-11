@@ -73,12 +73,7 @@
       <div class="container"></div>
     </div>
 
-    <div
-      class="singlePostBanner"
-      style="
-        background-image: url('https://cdn1.ivivu.com/iVivu/2020/03/05/14/bangkok-cr-370x190.jpg');
-      "
-    >
+    <div class="singlePostBanner" style="background-image: url('https://cdn1.ivivu.com/iVivu/2020/03/05/14/bangkok-cr-370x190.jpg');">
       <div class="container">
         <h1 class="text-light text-center">Post title</h1>
         <ul class="breadcrumb">

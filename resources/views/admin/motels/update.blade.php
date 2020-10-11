@@ -27,6 +27,10 @@
                 <input type="text" name="address" class="form-control" value="{{$motel->address}}">
             </div>
             <div class="form-group">
+                <label>Mô tả</label>
+                <input type="text" name="description" class="form-control">
+            </div>
+            <div class="form-group">
                 <label>Giá phòng trung bình</label>
                 <input type="number" name="prices" class="form-control" value="{{$motel->prices }}">
             </div>

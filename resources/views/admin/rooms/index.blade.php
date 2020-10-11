@@ -3,7 +3,7 @@
 @section('content')
     <!-- Main content -->
     <section class="content">
-        <h1>rooms</h1>
+        <h1>Phòng nhà nghỉ</h1>
         <a href="{{ url('admin/rooms/create') }}" class="btn btn-primary">
             Thêm mới
         </a>
@@ -40,6 +40,9 @@
                 @endforeach
                 </tbody>
             </table>
+        </div>
+        <div class="pagi col-md-12">
+            {{ $rooms->links('vendor.pagination.bootstrap-4') }}
         </div>
     </section>
     <!-- /.content -->

@@ -1,14 +1,21 @@
 @extends('admin.layouts.main')
-@section('title','Sửa phòng')
+@section('title','Sửa bài viết')
 @section('content')
     <!-- Main content -->
     <section class="content">
-        <h1>Thêm banner mới</h1>
-        <form method="post" action="{{ url('admin/categories/create') }}" enctype="multipart/form-data">
+        <h1>Sửa bài viết</h1>
+        @if(count($errors) > 0)
+            <div class="alert alert-danger">
+                @foreach($errors->all() as $error)
+                    {{$error}}<br>
+                @endforeach
+            </div>
+        @endif
+        <form method="post" action="{{ url('admin/posts/update/'.$post->id) }}" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label>Chọn chủ đề</label>
-                <select name="categoryID">
+                <select name="categoryID" class="form-control">
                     @foreach($categories as $category)
                         <option value="{{$category->id}}">{{$category->name}}</option>
                     @endforeach
@@ -16,15 +23,15 @@
             </div>
             <div class="form-group">
                 <label>Tiêu đề</label>
-                <input type="text" name="title">
+                <input type="text" name="title" class="form-control">
             </div>
             <div class="form-group">
                 <label>Ảnh đại diện</label>
-                <input type="file" name="image">
+                <input type="file" name="image" class="form-control">
             </div>
             <div class="form-group">
                 <label>Nội dung</label>
-                <textarea name="content"></textarea>
+                <textarea name="content" class="form-control"></textarea>
             </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" name="submit" value="Lưu"/>

@@ -3,7 +3,7 @@
 @section('content')
     <!-- Main content -->
     <section class="content">
-        <h1>Users</h1>
+        <h1>Bài viết</h1>
         <a href="{{ url('admin/posts/create') }}" class="btn btn-primary">
             Thêm mới
         </a>
@@ -38,6 +38,9 @@
                 @endforeach
                 </tbody>
             </table>
+        </div>
+        <div class="pagi col-md-12">
+            {{ $posts->links('vendor.pagination.bootstrap-4') }}
         </div>
     </section>
     <!-- /.content -->

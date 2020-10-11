@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 class RoomController extends Controller
 {
     public function getIndex(){
-        $rooms = Rooms::orderBy('id','DESC')->get();
+        $rooms = Rooms::orderBy('id','DESC')->paginate(10);
         return view('admin.rooms.index',[
             'rooms' => $rooms
         ]);

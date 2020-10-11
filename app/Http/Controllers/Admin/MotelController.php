@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class MotelController extends Controller
 {
     public function getIndex(){
-        $motels = Motels::all();
+        $motels = Motels::paginate(10);
         return view('admin.motels.index',[
             'motels' => $motels
         ]);
@@ -42,6 +42,7 @@ class MotelController extends Controller
         $motel->name = $request->name;
         $motel->avatar = $avatar_name;
         $motel->address = $request->address;
+        $motel->description = $request->description;
         $motel->prices = $request->prices;
         $motel->save();
 
@@ -74,6 +75,7 @@ class MotelController extends Controller
 
         $motel->name = $request->name;
         $motel->address = $request->address;
+        $motel->description = $request->description;
         $motel->prices = $request->prices;
         $motel->save();
 

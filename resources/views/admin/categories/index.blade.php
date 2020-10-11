@@ -3,7 +3,7 @@
 @section('content')
     <!-- Main content -->
     <section class="content">
-        <h1>categorys</h1>
+        <h1>Chủ đề bài viết</h1>
         <a href="{{ url('admin/categories/create') }}" class="btn btn-primary">
             Thêm mới
         </a>
@@ -30,6 +30,9 @@
                 @endforeach
                 </tbody>
             </table>
+        </div>
+        <div class="pagi col-md-12">
+            {{ $categories->links('vendor.pagination.bootstrap-4') }}
         </div>
     </section>
     <!-- /.content -->

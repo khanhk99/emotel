@@ -15,6 +15,7 @@
                     <th>Tên</th>
                     <th>Ảnh đại diện</th>
                     <th>Địa chỉ</th>
+                    <th>Mô tả</th>
                     <th>Giá trung bình</th>
                     <th></th>
                 </tr>
@@ -27,6 +28,7 @@
                         @php($avatar = $motel->avatar)
                         <td><img src="{{ asset('assets/images/'. $avatar) }}" style="width: 100px"></td>
                         <td>{{ $motel->address }}</td>
+                        <td>{{ $motel->desciption }}</td>
                         <td>{{ $motel->prices }}</td>
                         <td>
                             <a href="{{ url('admin/motels/update/' . $motel->id) }}">Sửa </a>&nbsp
@@ -36,6 +38,9 @@
                 @endforeach
                 </tbody>
             </table>
+        </div>
+        <div class="pagi col-md-12">
+            {{ $motels->links('vendor.pagination.bootstrap-4') }}
         </div>
     </section>
     <!-- /.content -->

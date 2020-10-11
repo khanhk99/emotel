@@ -37,9 +37,9 @@
 
             <div class="header__menu">
                 <ul>
-                    <li><a href="#" class="header__menuItem active">Trang chủ</a></li>
+                    <li><a href="{{ url('/') }}" class="header__menuItem active">Trang chủ</a></li>
                     <li><a href="#" class="header__menuItem">Giới thiệu</a></li>
-                    <li><a href="#" class="header__menuItem">Tin tức</a></li>
+                    <li><a href="{{ url('posts') }}" class="header__menuItem">Tin tức</a></li>
                     <li><a href="#" class="header__menuItem">Hỗ trợ</a></li>
                 </ul>
             </div>
@@ -65,7 +65,7 @@
     <div class="container">
         <ul>
             <li>
-                <a href="#">
+                <a href="{{ url('/') }}">
                     <div class="header-mobile__item">
                         <i class="fas fa-home"></i>
                         <p>Trang chủ</p>
@@ -81,7 +81,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="{{ url('posts') }}">
                     <div class="header-mobile__item">
                         <i class="fas fa-hands-helping"></i>
                         <p>Tin tức</p>

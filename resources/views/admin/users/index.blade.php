@@ -52,6 +52,9 @@
                 </tbody>
             </table>
         </div>
+        <div class="pagi col-md-12">
+            {{ $users->links('vendor.pagination.bootstrap-4') }}
+        </div>
     </section>
     <!-- /.content -->
 @endsection

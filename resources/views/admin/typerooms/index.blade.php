@@ -3,7 +3,7 @@
 @section('content')
     <!-- Main content -->
     <section class="content">
-        <h1>typeroom</h1>
+        <h1>Loại phòng</h1>
         <a href="{{ url('admin/typerooms/create') }}" class="btn btn-primary">
             Thêm mới
         </a>
@@ -30,6 +30,9 @@
                 @endforeach
                 </tbody>
             </table>
+        </div>
+        <div class="pagi col-md-12">
+            {{ $typeRooms->links('vendor.pagination.bootstrap-4') }}
         </div>
     </section>
     <!-- /.content -->

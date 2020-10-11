@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class CategoryController extends Controller
 {
     public function getindex(){
-        $categories = Categories::all();
+        $categories = Categories::paginate(10);
         return view('admin.categories.index',[
             'categories' => $categories
         ]);

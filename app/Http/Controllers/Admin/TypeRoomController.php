@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class TypeRoomController extends Controller
 {
     public function getIndex(){
-        $typeRooms = TypeRooms::all();
+        $typeRooms = TypeRooms::paginate(10);
         return view('admin.typerooms.index',[
             'typeRooms' => $typeRooms
         ]);
