@@ -13,11 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('admin/login','App\Http\Controllers\Admin\UserController@getLoginAdmin');
-Route::post('admin/login','App\Http\Controllers\Admin\UserController@postLoginAdmin');
-Route::get('admin/logout','App\Http\Controllers\Admin\UserController@logout');
-
-Route::group(['prefix' => 'admin'], function(){
+Route::group(['prefix' => 'admin', 'middleware' => 'checkAdmin'], function(){
     Route::get('/','App\Http\Controllers\Admin\BannerController@getIndex');
     Route::group(['prefix' => 'banners'], function(){
         Route::get('index','App\Http\Controllers\Admin\BannerController@getIndex');

@@ -57,7 +57,12 @@
                     <span>{{ $user->name }}</span>
                     <div class="header__userMenu">
                         <ul>
-                            <!-- Account Management -->
+                            @if($user->role == 1)
+                                <li>
+                                    <a href="{{ url('admin') }}">Trang quản trị</a>
+                                </li>
+                        @endif
+                        <!-- Account Management -->
                             <li class="block px-4 py-2 text-xs text-gray-400">
                                 {{ __('Quản lý tài khoản') }}
                             </li>
@@ -65,47 +70,10 @@
                             <li>
                                 <a href="{{ route('profile.show') }}">{{ __('Hồ sơ') }}</a>
                             </li>
-
-                            @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
-                                <li>
-                                    <a href="{{ route('api-tokens.index') }}">{{ __('API Tokens') }}</a>
-                                </li>
-                            @endif
-
                             <div class="border-t border-gray-100"></div>
 
                             <!-- Team Management -->
-                            @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
-                                <li class="block px-4 py-2 text-xs text-gray-400">
-                                    {{ __('Manage Team') }}
-                                </li>
-
-                                <!-- Team Settings -->
-                                <li>
-                                    <a href="{{ route('teams.show', Auth::user()->currentTeam->id) }}">{{ __('Team Settings') }}</a>
-                                </li>
-
-                                @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
-                                    <li>
-                                        <a href="{{ route('teams.create') }}">{{ __('Create New Team') }}</a>
-                                    </li>
-                                @endcan
-
-                                <div class="border-t border-gray-100"></div>
-
-                                <!-- Team Switcher -->
-                                <li class="block px-4 py-2 text-xs text-gray-400">
-                                    {{ __('Switch Teams') }}
-                                </li>
-
-                                @foreach (Auth::user()->allTeams() as $team)
-                                    <x-jet-switchable-team :team="$team"/>
-                                @endforeach
-
-                                <div class="border-t border-gray-100"></div>
-                        @endif
-
-                        <!-- Authentication -->
+                            <!-- Authentication -->
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
 

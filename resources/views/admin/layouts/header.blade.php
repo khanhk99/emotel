@@ -1,5 +1,5 @@
-@php($user_header = \Illuminate\Support\Facades\Auth::user())
-<!DOCTYPE html>
+@php($user = \Illuminate\Support\Facades\Auth::user())
+    <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -43,31 +43,32 @@
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
                     <!-- User Account: style can be found in dropdown.less -->
-                    @if(isset($user_header))
-                    <li class="dropdown user user-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <span class="hidden-xs">{{$user_header->name}}</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <!-- User image -->
-                            <li class="user-header">
-                                <img src="assets/images/user2-160x160.jpg" class="img-circle" alt="User Image">
+                    @if(isset($user))
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="hidden-xs">{{ $user->name }}</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- User image -->
+                                <!-- Menu Footer-->
+                                <li class="user-footer">
+                                    <div class="pull-left">
+                                        <a href="{{ route('profile.show') }}" class="btn btn-default btn-flat">Hồ sơ</a>
+                                    </div>
+                                    <div class="pull-right">
+                                        <form method="POST" action="{{ route('logout') }}">
+                                            @csrf
+                                            <a href="{{ route('logout') }}" class="btn btn-default btn-flat"
+                                               onclick="event.preventDefault();
+                                                                        this.closest('form').submit();">
+                                                {{ __('Đăng xuất') }}
+                                            </a>
+                                        </form>
+                                    </div>
 
-                                <p>
-{{--                                    Thông tin cá nhân--}}
-                                </p>
-                            </li>
-                            <!-- Menu Footer-->
-                            <li class="user-footer">
-                                <div class="pull-left">
-                                    <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                </div>
-                                <div class="pull-right">
-                                    <a href="{{url('admin/logout')}}" class="btn btn-default btn-flat">Sign out</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
+                                </li>
+                            </ul>
+                        </li>
                     @endif
                 </ul>
             </div>
