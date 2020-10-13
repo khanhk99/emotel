@@ -13,4 +13,13 @@ class NewsController extends Controller
             'posts' => $posts
         ]);
     }
+
+    public function detail($id){
+        $postAlls = Posts::orderBy('id', 'desc')->get();
+        $post = Posts::find($id);
+        return view('postDetails',[
+            'post' => $post,
+            'postAlls' => $postAlls,
+        ]);
+    }
 }

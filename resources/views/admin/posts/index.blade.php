@@ -29,7 +29,7 @@
                         <td>{{ $post->title }}</td>
                         @php($avatar = $post->avatar)
                         <td><img src="{{ asset('assets/images/'. $avatar) }}" style="width: 100px"></td>
-                        <td>{{ $post->content }}</td>
+                        <td>{!! $post->content !!}</td>
                         <td>
                             <a href="{{ url('admin/posts/update/' . $post->id) }}">Sửa </a>&nbsp
                             <a href="{{ url('admin/posts/delete/' . $post->id) }}">Xóa</a>

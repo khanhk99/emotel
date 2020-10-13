@@ -14,7 +14,17 @@
 <script src="{{asset('assets/admin/js/jquery-ui.min.js') }}"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="{{asset('assets/admin/js/bootstrap.min.js') }}"></script>
+<script src="https://cdn.ckeditor.com/ckeditor5/23.0.0/classic/ckeditor.js"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('assets/admin/js/adminlte.min.js') }}"></script>
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .then( editor => {
+            console.log( editor );
+        } )
+        .catch( error => {
+            console.error( error );
+        } );</script>
 </body>
 </html>

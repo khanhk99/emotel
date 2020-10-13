@@ -19,7 +19,7 @@ class CreatePostsTable extends Migration
             $table->integer('categoryID');
             $table->string('title');
             $table->string('avatar');
-            $table->string('content',2000);
+            $table->string('content',10000);
             $table->timestamps();
         });
     }

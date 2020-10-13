@@ -72,6 +72,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'checkAdmin'], function(){
 //Frontend
 Route::get('/','App\Http\Controllers\HomeController@index');
 Route::get('posts','App\Http\Controllers\NewsController@index');
+Route::get('posts/detail/{id}','App\Http\Controllers\NewsController@detail');
+Route::get('motels/detail/{id}','App\Http\Controllers\MotelController@detail');
+Route::get('test',function (){
+    return view('motelDetails');
+});
 
 //endFrontend
 

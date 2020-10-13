@@ -2,10 +2,10 @@
 const header = document.querySelector("header");
 window.addEventListener("scroll", () => {
   let scrollTop = document.getElementsByTagName("html")[0].scrollTop;
-  console.log(scrollTop);
 
   if (scrollTop >= 300) {
     header.classList.add("scrolled");
+    header.classList.remove("headerLight");
   } else {
     header.classList.remove("scrolled");
   }
@@ -41,6 +41,25 @@ const swiper = new Swiper(".swiper-container", {
   scrollbar: {
     el: ".swiper-scrollbar",
   },
+});
+
+// init list img
+var galleryThumbs = new Swiper('.gallery-thumbs', {
+  spaceBetween: 10,
+  slidesPerView: 4,
+  freeMode: true,
+  watchSlidesVisibility: true,
+  watchSlidesProgress: true,
+});
+var galleryTop = new Swiper('.gallery-top', {
+  spaceBetween: 10,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  thumbs: {
+    swiper: galleryThumbs
+  }
 });
 
 // init select2

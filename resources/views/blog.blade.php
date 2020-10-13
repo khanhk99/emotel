@@ -21,7 +21,7 @@
                 @foreach($posts as $post)
                     <div class="col-md-4">
                         <div class="singlePost">
-                            <a href="">
+                            <a href="{{ url('posts/detail/'. $post->id) }}">
                                 <img
                                     src="{{ asset('assets/images/'.$post->avatar) }}"
                                     alt=""

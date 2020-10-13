@@ -53,7 +53,9 @@
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
+                                        <a href="{{ url('/') }}">Trang chủ</a>
                                         <a href="{{ route('profile.show') }}" class="btn btn-default btn-flat">Hồ sơ</a>
+
                                     </div>
                                     <div class="pull-right">
                                         <form method="POST" action="{{ route('logout') }}">

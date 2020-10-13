@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddDescriptionToMotels extends Migration
+class AddPhonenumberToMotels extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AddDescriptionToMotels extends Migration
     public function up()
     {
         Schema::table('motels', function (Blueprint $table) {
-            $table->string('description',10000)->after('address')->nullable();
+            $table->string('phoneNumber', 20)->after('address');
         });
     }
 

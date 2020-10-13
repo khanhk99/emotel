@@ -10,7 +10,7 @@ class HomeController extends Controller
 {
     public function index(){
         $motels = Motels::all();
-        $posts = Posts::orderBy('id', 'asc')->take(3)->get();
+        $posts = Posts::orderBy('id', 'desc')->take(6)->get();
         return view('index',[
             'motels' => $motels,
             'posts' => $posts

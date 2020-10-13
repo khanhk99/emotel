@@ -52,7 +52,7 @@
                     @foreach($motels as $motel)
                         <div class="swiper-slide">
                             <div class="singlePost">
-                                <a href="">
+                                <a href="{{ url('motels/detail/' . $motel->id) }}">
                                     <img
                                         src="{{ asset('assets/images/'. $motel->avatar) }}"
                                         alt=""
@@ -172,7 +172,8 @@
                 @foreach($posts as $post)
                     <div class="col-md-4">
                         <div class="singlePost">
-                            <a href="">
+                            <?php $link = 'posts/detail/' . $post->id ?>
+                            <a href="{{ url($link) }}">
                                 <img
                                     src="{{ asset('assets/images/'. $post->avatar) }}"
                                     alt=""
@@ -184,10 +185,10 @@
                                             $str = $post->content;
                                             if(strlen($str)>100){
                                                 $strCut = substr($str, 0, 100);
-                                                $str = substr($strCut, 0, strrpos($strCut, ' ')). '...  <a href="Link cần dẫn">Đọc tiếp</a>';
+                                                $str = substr($strCut, 0, strrpos($strCut, ' ')). '...  <a href="' . $link . '">Đọc tiếp</a>';
                                             }
                                         @endphp
-                                        {{ $str }}
+                                        {!! $str !!}
                                     </p>
                                 </div>
                             </a>
@@ -195,7 +196,7 @@
                     </div>
                 @endforeach
                 <div class="col-md-12">
-                    <a href="#" class="more">Xem thêm</a>
+                    <a href="{{ url('posts') }}" class="more">Xem thêm</a>
                 </div>
             </div>
         </div>

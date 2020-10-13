@@ -49,19 +49,19 @@
             </div>
 
             <div class="header__right">
-                <a href="#" class="header__rightItem">Trở thành chủ nhà/người tổ chức</a>
+                <a href="http://upmotel.net/" class="header__rightItem" target="_blank">Bạn là chủ nhà nghỉ?</a>
             </div>
             @if(\Illuminate\Support\Facades\Auth::check())
                 <div class="header__rightUser">
                     <i class="fas fa-bars"></i>
-                    <span>{{ $user->name }}</span>
+                    <i>{{ $user->name }}</i>
                     <div class="header__userMenu">
                         <ul>
                             @if($user->role == 1)
                                 <li>
                                     <a href="{{ url('admin') }}">Trang quản trị</a>
                                 </li>
-                        @endif
+                            @endif
                         <!-- Account Management -->
                             <li class="block px-4 py-2 text-xs text-gray-400">
                                 {{ __('Quản lý tài khoản') }}
@@ -70,7 +70,6 @@
                             <li>
                                 <a href="{{ route('profile.show') }}">{{ __('Hồ sơ') }}</a>
                             </li>
-                            <div class="border-t border-gray-100"></div>
 
                             <!-- Team Management -->
                             <!-- Authentication -->
