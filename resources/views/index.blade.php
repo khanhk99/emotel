@@ -53,10 +53,20 @@
                         <div class="swiper-slide">
                             <div class="singlePost">
                                 <a href="{{ url('motels/detail/' . $motel->id) }}">
-                                    <img
-                                        src="{{ asset('assets/images/'. $motel->avatar) }}"
-                                        alt=""
-                                    />
+                                    @php
+                                        $avatar_motel = explode('--',$motel->avatar);
+                                    @endphp
+                                    @if(count($avatar_motel)>1)
+                                        <img
+                                            src="{{ asset('assets/images/'. $avatar_motel[1]) }}"
+                                            alt=""
+                                        />
+                                    @else
+                                        <img
+                                            src="{{ asset('assets/images/'. $avatar_motel[0]) }}"
+                                            alt=""
+                                        />
+                                    @endif
                                     <div class="singlePost__content">
                                         <h3 class="title">{{ $motel->name }}</h3>
                                         <p class="rating">

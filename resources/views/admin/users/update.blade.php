@@ -57,10 +57,6 @@
                     <option value="3" {{$subscriber}}>Khách hàng</option>
                 </select>
             </div>
-            <div class="form-group">
-                <label>Địa chỉ</label>
-                <input type="text" name="address" class="form-control">
-            </div>
 
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" name="submit" value="Lưu"/>

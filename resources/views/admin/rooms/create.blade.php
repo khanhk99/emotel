@@ -30,20 +30,24 @@
                 </select>
             </div>
             <div class="form-group">
+                <label>Số phòng</label>
+                <input type="number" name="roomNumber" class="form-control" value="{{ old('roomNumber') }}">
+            </div>
+            <div class="form-group">
                 <label>Giá giờ</label>
-                <input type="number" name="priceHour" class="form-control">
+                <input type="number" name="priceHour" class="form-control" value="{{ old('priceHour') }}">
             </div>
             <div class="form-group">
                 <label>Giá qua đêm</label>
-                <input type="number" name="priceDay" class="form-control">
+                <input type="number" name="priceDay" class="form-control" value="{{ old('priceDay') }}">
             </div>
             <div class="form-group">
                 <label>Ảnh đại diện</label>
-                <input type="file" name="image" class="form-control">
+                <input type="file" name="images[]" class="form-control" value="{{ old('images') }}" multiple>
             </div>
             <div class="form-group">
                 <label>Mô tả</label>
-                <textarea name="description" class="form-control"></textarea>
+                <textarea name="description" class="form-control">{{ old('description') }}</textarea>
             </div>
 
             <div class="form-group">

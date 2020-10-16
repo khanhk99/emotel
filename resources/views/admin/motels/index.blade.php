@@ -15,6 +15,7 @@
                     <th>Tên</th>
                     <th>Ảnh đại diện</th>
                     <th>Địa chỉ</th>
+                    <th>Số điện thoại</th>
                     <th>Mô tả</th>
                     <th>Giá trung bình</th>
                     <th></th>
@@ -25,10 +26,19 @@
                     <tr>
                         <td>{{ $motel->id }}</td>
                         <td>{{ $motel->name }}</td>
-                        @php($avatar = $motel->avatar)
-                        <td><img src="{{ asset('assets/images/'. $avatar) }}" style="width: 100px"></td>
+                        @php
+                            $arr_images = explode('--', $motel->avatar)
+                        @endphp
+                        <td>
+                            @foreach($arr_images as $image)
+                                @if($image != '')
+                                    <img src="{{ asset('assets/images/'. $image) }}" style="width: 100px">
+                                @endif
+                            @endforeach
+                        </td>
                         <td>{{ $motel->address }}</td>
-                        <td>{{ $motel->desciption }}</td>
+                        <td>{{ $motel->phoneNumber }}</td>
+                        <td>{{ $motel->description }}</td>
                         <td>{{ $motel->prices }}</td>
                         <td>
                             <a href="{{ url('admin/motels/update/' . $motel->id) }}">Sửa </a>&nbsp

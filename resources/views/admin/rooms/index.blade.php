@@ -14,6 +14,7 @@
                     <th>ID</th>
                     <th>Tên nhà nghỉ</th>
                     <th>Loại phòng</th>
+                    <th>Số phòng</th>
                     <th>Giá giờ</th>
                     <th>Giá qua đêm</th>
                     <th>Ảnh đại diện</th>
@@ -27,10 +28,19 @@
                         <td>{{ $room->id }}</td>
                         <td>{{ $room->motel->name }}</td>
                         <td>{{ $room->typeRoom->name }}</td>
+                        <td>{{ $room->roomNumber }}</td>
                         <td>{{ $room->priceHour }}</td>
                         <td>{{ $room->priceDay }}</td>
-                        @php($avatar = $room->avatar)
-                        <td><img src="{{ asset('assets/images/'. $avatar) }}" style="width: 100px"></td>
+                        @php
+                            $arr_images = explode('--', $room->avatar)
+                        @endphp
+                        <td>
+                            @foreach($arr_images as $image)
+                                @if($image != '')
+                                <img src="{{ asset('assets/images/'. $image) }}" style="width: 100px">
+                                @endif
+                            @endforeach
+                        </td>
                         <td>{{ $room->description }}</td>
                         <td>
                             <a href="{{ url('admin/rooms/update/' . $room->id) }}">Sửa</a>&nbsp

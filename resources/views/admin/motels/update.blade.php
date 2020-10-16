@@ -19,16 +19,27 @@
             </div>
             <div class="form-group">
                 <label>avatar</label>
-                <input type="file" name="image" class="form-control">
-                <img src="{{asset('assets/images/'. $motel->avatar)}}">
+                <input type="file" name="images[]" class="form-control" multiple>
+                @php
+                    $arr_images = explode('--', $motel->avatar)
+                @endphp
+                @foreach($arr_images as $image)
+                    @if($image != '')
+                        <img src="{{ asset('assets/images/'. $image) }}" style="width: 100px">
+                    @endif
+                @endforeach
             </div>
             <div class="form-group">
                 <label>Địa chỉ</label>
                 <input type="text" name="address" class="form-control" value="{{$motel->address}}">
             </div>
             <div class="form-group">
+                <label>Số điện thoại</label>
+                <input type="text" name="phoneNumber" class="form-control" value="{{$motel->phoneNumber}}">
+            </div>
+            <div class="form-group">
                 <label>Mô tả</label>
-                <input type="text" name="description" class="form-control">
+                <input type="text" name="description" class="form-control" value="{{$motel->description}}">
             </div>
             <div class="form-group">
                 <label>Giá phòng trung bình</label>

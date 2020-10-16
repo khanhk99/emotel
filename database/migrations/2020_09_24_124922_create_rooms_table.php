@@ -17,10 +17,12 @@ class CreateRoomsTable extends Migration
             $table->id();
             $table->integer('motelID');
             $table->integer('typeID');
+            $table->int('roomNumber');
             $table->double('priceHour');
             $table->double('priceDay');
             $table->string('avatar');
             $table->string('description');
+            $table->tinyInteger('status')->nullable();
             $table->timestamps();
         });
     }

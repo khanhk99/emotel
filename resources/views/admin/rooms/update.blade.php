@@ -32,6 +32,10 @@
                 </select>
             </div>
             <div class="form-group">
+                <label>Số phòng</label>
+                <input type="number" name="roomNumber" class="form-control" value="{{$room->roomNumber}}">
+            </div>
+            <div class="form-group">
                 <label>Giá giờ</label>
                 <input type="number" name="priceHour" class="form-control" value="{{$room->priceHour}}">
             </div>

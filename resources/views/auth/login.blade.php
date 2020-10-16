@@ -60,7 +60,7 @@
                     class="wrap-input100 validate-input"
                     data-validate="Email không hợp lệ: ex@abc.xyz"
                 >
-                    <input class="input100" type="text" name="username" :value="old('username')" required autofocus  />
+                    <input class="input100" type="text" name="username" value=""/>
                     <span class="focus-input100"></span>
                     <span class="label-input100">Tên đăng nhập</span>
                 </div>

@@ -23,25 +23,33 @@ class MotelController extends Controller
     public function postCreate(Request $request){
         $this->validate($request,[
             'name'=>'required',
-            'image'=>'required',
+            'images'=>'required|max:4096',
             'address'=> 'required',
+            'phoneNumber'=> 'required',
         ],[
             'name.required'=>'Không được để trống tên nhà nghỉ',
-            'image.required'=>'Không được để trống ảnh đại diện',
+            'images.required'=>'Không được để trống ảnh đại diện',
+            'images.max' => 'Kích thước không được vượt quá 4096MB',
             'address.required'=>'Không được để trống địa chỉ',
+            'phoneNumber.required'=>'Không được để trống số điện thoại',
         ]);
 
-        if($request->hasFile('image')){
-            // thiếu validate file image
-            $avatar = $request->file('image');
-            $avatar_name =  $this->checkFileImage($avatar, $request);
+        if ($request->hasFile('images')) {
+            $images_name = '';
+            foreach ($request->images as $image) {
+                $image_name = time() . '-' . $image->getClientOriginalName();
+                $image->move('assets/images',$image_name);
+
+                $images_name .= '--' . $image_name;
+            }
         }
 
         $motel = new Motels();
 
         $motel->name = $request->name;
-        $motel->avatar = $avatar_name;
+        $motel->avatar = $images_name;
         $motel->address = $request->address;
+        $motel->phoneNumber = $request->phoneNumber;
         $motel->description = $request->description;
         $motel->prices = $request->prices;
         $motel->save();
@@ -60,21 +68,30 @@ class MotelController extends Controller
         $motel = Motels::find($id);
         $this->validate($request,[
             'name'=>'required',
+            'images'=>'max:4096',
             'address'=> 'required',
+            'phoneNumber'=> 'required',
         ],[
             'name.required'=>'Không được để trống tên nhà nghỉ',
+            'images.max' => 'Kích thước không được vượt quá 4096MB',
             'address.required'=>'Không được để trống địa chỉ',
+            'phoneNumber.required'=>'Không được để trống số điện thoại',
         ]);
 
-        if($request->hasFile('image')){
-            // thiếu validate file image
-            $avatar = $request->file('image');
-            $avatar_name =  $this->checkFileImage($avatar, $request);
-            $motel->avatar = $avatar_name;
+        if ($request->hasFile('images')) {
+            $images_name = '';
+            foreach ($request->images as $image) {
+                $image_name = time() . '-' . $image->getClientOriginalName();
+                $image->move('assets/images',$image_name);
+
+                $images_name .= '--' . $image_name;
+            }
+            $motel->avatar = $images_name;
         }
 
         $motel->name = $request->name;
         $motel->address = $request->address;
+        $motel->phoneNumber = $request->phoneNumber;
         $motel->description = $request->description;
         $motel->prices = $request->prices;
         $motel->save();

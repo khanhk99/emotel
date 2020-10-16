@@ -16,15 +16,15 @@
             @csrf
             <div class="form-group">
                 <label>Tên đăng nhập</label>
-                <input type="text" name="username" class="form-control">
+                <input type="text" name="username" class="form-control" value="{{old('username')}}">
             </div>
             <div class="form-group">
                 <label>Tên hiển thị</label>
-                <input type="text" name="name" class="form-control">
+                <input type="text" name="name" class="form-control" value="{{old('name')}}">
             </div>
             <div class="form-group">
                 <label>Email</label>
-                <input type="email" name="email" class="form-control">
+                <input type="email" name="email" class="form-control" value="{{old('email')}}">
             </div>
             <div class="form-group">
                 <label>Mật khẩu</label>
@@ -36,19 +36,15 @@
             </div>
             <div class="form-group">
                 <label>Số điện thoại</label>
-                <input type="number" name="phoneNumber" class="form-control">
+                <input type="number" name="phoneNumber" class="form-control" value="{{old('phoneNumber')}}">
             </div>
             <div class="form-group">
-                <label>Phân cấp</label>
-                <select name="level" class="form-control">
+                <label>Phân quyền</label>
+                <select name="role" class="form-control">
                     <option value="1">Quản lý</option>
                     <option value="2">Cộng tác viên</option>
                     <option value="3">Khách hàng</option>
                 </select>
-            </div>
-            <div class="form-group">
-                <label>Địa chỉ</label>
-                <input type="text" name="address" class="form-control">
             </div>
 
             <div class="form-group">

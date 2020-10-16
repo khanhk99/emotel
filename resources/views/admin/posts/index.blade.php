@@ -24,8 +24,8 @@
                 @foreach($posts as $post)
                     <tr>
                         <td>{{ $post->id }}</td>
-                        <td>{{ $post->userID }}</td>
-                        <td>{{ $post->categoryID }}</td>
+                        <td>{{ $post->user->name }}</td>
+                        <td>{{ $post->category->name }}</td>
                         <td>{{ $post->title }}</td>
                         @php($avatar = $post->avatar)
                         <td><img src="{{ asset('assets/images/'. $avatar) }}" style="width: 100px"></td>

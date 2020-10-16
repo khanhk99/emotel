@@ -16,7 +16,7 @@ class CreateMotelsTable extends Migration
         Schema::create('motels', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('avatar');
+            $table->string('avatar',1000);
             $table->string('address');
             $table->double('prices');
             $table->timestamps();

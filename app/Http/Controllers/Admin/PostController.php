@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 class PostController extends Controller
 {
     public function getIndex(){
-        $posts = Posts::paginate(10);
+        $posts = Posts::orderBy('id','DESC')->paginate(10);
         return view('admin.posts.index',[
             'posts' => $posts
         ]);
@@ -39,8 +39,7 @@ class PostController extends Controller
             $avatar = $request->file('image');
             $avatar_name =  $this->checkFileImage($avatar, $request);
         }
-//        $user_now = Auth::user()->id;
-        $user_now = 1;
+        $user_now = Auth::user()->id;
         $post = new Posts();
 
         $post->userID = $user_now;
@@ -80,8 +79,7 @@ class PostController extends Controller
             $avatar = $request->file('image');
             $avatar_name =  $this->checkFileImage($avatar, $request);
         }
-//        $user_now = Auth::user()->id;
-        $user_now = 1;
+        $user_now = Auth::user()->id;
         $post->userID = $user_now;
         $post->title = $request->title;
         $post->categoryID = $request->categoryID;
