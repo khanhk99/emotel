@@ -31,7 +31,7 @@
             </div>
             <div class="form-group">
                 <label>Nội dung</label>
-                <textarea name="content" class="form-control" id="editor"></textarea>
+                <textarea name="content" class="form-control" id="ckeditor">{{ old('content') }}</textarea>
             </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" name="submit" value="Lưu"/>

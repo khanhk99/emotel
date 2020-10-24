@@ -18,6 +18,14 @@
                 <input type="text" name="name" class="form-control" value="{{ old('name') }}">
             </div>
             <div class="form-group">
+                <label>Chọn chủ nhà nghỉ</label>
+                <select name="userID" class="form-control">
+                    @foreach($users as $user)
+                        <option value="{{$user->id}}">{{$user->username}}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="form-group">
                 <label>avatar</label>
                 <input type="file" name="images[]" class="form-control" multiple>
             </div>
@@ -31,7 +39,7 @@
             </div>
             <div class="form-group">
                 <label>Mô tả</label>
-                <input type="text" name="description" class="form-control" value="{{ old('description') }}">
+                <textarea name="description" class="form-control" id="ckeditor">{{ old('description') }}</textarea>
             </div>
             <div class="form-group">
                 <label>Giá phòng trung bình</label>

@@ -13,6 +13,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Tên nhà nghỉ</th>
+                    <th>Người dùng quản lý</th>
                     <th>Loại phòng</th>
                     <th>Số phòng</th>
                     <th>Giá giờ</th>
@@ -27,6 +28,7 @@
                     <tr>
                         <td>{{ $room->id }}</td>
                         <td>{{ $room->motel->name }}</td>
+                        <td>{{ $room->user->username }}</td>
                         <td>{{ $room->typeRoom->name }}</td>
                         <td>{{ $room->roomNumber }}</td>
                         <td>{{ $room->priceHour }}</td>

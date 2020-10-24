@@ -11,4 +11,8 @@ class Motels extends Model
     public function rooms(){
         return $this->hasMany('App\Rooms', 'motelID', 'id');
     }
+
+    public function user(){
+        return $this->belongsTo('App\Models\User','userID','id');
+    }
 }

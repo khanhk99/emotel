@@ -50,7 +50,7 @@
             </div>
             <div class="form-group">
                 <label>Mô tả</label>
-                <textarea name="description" class="form-control">{{$room->description}}</textarea>
+                <textarea name="description" class="form-control" id="ckeditor">{{$room->description}}</textarea>
             </div>
 
             <div class="form-group">

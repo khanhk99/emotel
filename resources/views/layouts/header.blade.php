@@ -61,7 +61,11 @@
                                 <li>
                                     <a href="{{ url('admin') }}">Trang quản trị</a>
                                 </li>
-                            @endif
+                            @elseif($user->role == 2)
+                                <li>
+                                    <a href="{{ url($user->id . '/editor/rooms/index') }}">Quản lý nhà nghỉ</a>
+                                </li>
+                        @endif
                         <!-- Account Management -->
                             <li class="block px-4 py-2 text-xs text-gray-400">
                                 {{ __('Quản lý tài khoản') }}

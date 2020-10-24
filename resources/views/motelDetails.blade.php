@@ -20,7 +20,7 @@
                 </div>
                 <div class="motelIntro__book text-right">
                     <h3>Giá chỉ từ: <br/><span>{{ $motel->prices }}</span></h3>
-                    <button class="btn btn-danger"><a href="tel:{{$motel->phoneNumber}}" style="color:#ffffff;">Đặt
+                    <button class="btn btn-danger"><a href="{{ url('roomList/'. $motel->id) }}" style="color:#ffffff;">Đặt
                             phòng</a></button>
                 </div>
             </div>

@@ -15,4 +15,8 @@ class Rooms extends Model
     public function typeRoom(){
         return $this->belongsTo('App\TypeRooms','typeID','id');
     }
+
+    public function user(){
+        return $this->belongsTo('App\Models\User','userID','id');
+    }
 }

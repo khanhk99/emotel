@@ -7799,36 +7799,28 @@ header .header .header__rightUser .header__userMenu ul li a:hover {
     background-size: cover;
     background-repeat: no-repeat;
 }
-.banner .clientForm {
-    background-color: #fff;
-    padding: 10px 15px;
-    border-radius: 2rem;
-    margin-bottom: 120px;
+.banner .background {
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 1rem;
+    padding: 5rem 2rem;
 }
-.banner .clientForm form {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-}
-.banner .clientForm form .clientForm__item {
-    margin: 0 1rem;
-}
-.banner
-    .clientForm
-    form
-    .selection
-    .select2-selection.select2-selection--single {
-    border: none;
-    outline: none;
-}
-.banner .heading {
+.banner .background .heading {
     width: 100%;
+    color: #fff;
+}
+.banner .background .find-motel {
+    margin-top: 2rem;
+}
+.banner .background .find-motel .find-btn {
+    outline: none;
+    padding: 1rem;
+    border: none;
+    margin: 0 1rem;
+    -webkit-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
+}
+.banner .background .find-motel .find-btn:hover {
+    background-color: #ff385c;
     color: #fff;
 }
 .dd-w.dd-bottom {
@@ -8066,6 +8058,48 @@ footer p {
 }
 .motelImgSlide .gallery-thumbs .swiper-slide-thumb-active {
     opacity: 1;
+}
+.motelRooms {
+    margin: 2rem 0;
+}
+.motelRooms .motelRooms__list {
+    margin-top: 2rem;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+.motelRooms .motelRooms__list .motelRooms__item {
+    width: 10%;
+    color: #fff;
+    height: 100px;
+    background: green;
+    margin: 0 1%;
+    cursor: pointer;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.motelRooms .motelRooms__list .motelRooms__item p {
+    margin: 0;
+}
+.motelRooms .motelRooms__listItemDetails {
+    margin-top: 2rem;
+}
+.motelRooms .motelRooms__listItemDetails .tab-pane table tr td:first-child {
+    width: 25%;
+    font-weight: 700;
 }
 .breadcrumb {
     background-color: transparent;

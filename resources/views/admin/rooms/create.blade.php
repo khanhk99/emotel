@@ -47,7 +47,7 @@
             </div>
             <div class="form-group">
                 <label>Mô tả</label>
-                <textarea name="description" class="form-control">{{ old('description') }}</textarea>
+                <textarea name="description" class="form-control" id="ckeditor">{{ old('description') }}</textarea>
             </div>
 
             <div class="form-group">

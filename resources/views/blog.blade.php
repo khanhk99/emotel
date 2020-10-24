@@ -27,9 +27,23 @@
                                     alt=""
                                 />
                                 <div class="singlePost__content">
-                                    <h3 class="title">{{ $post->title }}</h3>
+                                    @php
+                                        $str_title = $post->title;
+                                        if(strlen($str_title)>30){
+                                            $strCut_title = substr($str_title, 0, 30);
+                                            $str_title = substr($strCut_title, 0, strrpos($strCut_title, ' ')). '...';
+                                        }
+                                    @endphp
+                                    <h3 class="title">{!! $str_title !!}</h3>
+                                    @php
+                                    $str = $post->content;
+                                    if (strlen($str) > 100) {
+                                        $strCut = substr($str, 0, 100);
+                                        $str = substr($strCut, 0, strrpos($strCut, ' ')) . '... Đọc tiếp';
+                                    }
+                                    @endphp
                                     <p class="description">
-                                        {{ $post->content }}
+                                        {{  strip_tags($str) }}
                                     </p>
                                 </div>
                             </a>

@@ -13,6 +13,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Tên</th>
+                    <th>Người quản lý</th>
                     <th>Ảnh đại diện</th>
                     <th>Địa chỉ</th>
                     <th>Số điện thoại</th>
@@ -26,6 +27,7 @@
                     <tr>
                         <td>{{ $motel->id }}</td>
                         <td>{{ $motel->name }}</td>
+                        <td>{{ $motel->user->username }}</td>
                         @php
                             $arr_images = explode('--', $motel->avatar)
                         @endphp

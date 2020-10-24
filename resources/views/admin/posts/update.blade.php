@@ -23,7 +23,7 @@
             </div>
             <div class="form-group">
                 <label>Tiêu đề</label>
-                <input type="text" name="title" class="form-control">
+                <input type="text" name="title" class="form-control" value="{{ $post->title }}">
             </div>
             <div class="form-group">
                 <label>Ảnh đại diện</label>
@@ -31,7 +31,7 @@
             </div>
             <div class="form-group">
                 <label>Nội dung</label>
-                <textarea name="content" class="form-control"></textarea>
+                <textarea name="content" class="form-control" id="ckeditor">{{ $post->content }}</textarea>
             </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" name="submit" value="Lưu"/>

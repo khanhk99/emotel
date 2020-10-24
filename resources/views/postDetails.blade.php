@@ -14,7 +14,7 @@
     <div class="singlePostContent">
         <div class="container">
             <div class="s-content">
-                {{$post->content}}
+                {!! $post->content !!}
             </div>
         </div>
     </div>
@@ -95,10 +95,10 @@
                                             $str = $postAll->content;
                                             if (strlen($str) > 100) {
                                                 $strCut = substr($str, 0, 100);
-                                                $str = substr($strCut, 0, strrpos($strCut, ' ')). '...' ;
+                                                $str = substr($strCut, 0, strrpos($strCut, ' ')). '... Đọc tiếp' ;
                                             }
                                             ?>
-                                            {!!  $str  !!}
+                                            {{ strip_tags($str)  }}
                                         </p>
                                     </div>
                                 </a>

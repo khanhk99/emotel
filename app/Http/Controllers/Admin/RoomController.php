@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Motels;
 use App\Rooms;
 use App\TypeRooms;
@@ -20,11 +21,13 @@ class RoomController extends Controller
 
     public function getCreate()
     {
+        $users = User::where('role',2)->get();
         $motels = Motels::all();
         $typeRooms = TypeRooms::all();
         return view('admin.rooms.create', [
             'motels' => $motels,
-            'typeRooms' => $typeRooms
+            'typeRooms' => $typeRooms,
+            'users' => $users,
         ]);
     }
 
@@ -54,8 +57,11 @@ class RoomController extends Controller
         }
 
         $room = new rooms();
+        $motelID = Motels::where('id',$request->motelID)->get();
+        $userID = $motelID[0]->userID;
 
         $room->motelID = $request->motelID;
+        $room->userID = $userID;
         $room->typeID = $request->typeID;
         $room->priceHour = $request->priceHour;
         $room->priceDay = $request->priceDay;
@@ -70,12 +76,14 @@ class RoomController extends Controller
     public function getUpdate($id)
     {
         $room = Rooms::find($id);
+        $users = User::where('role',2)->get();
         $motels = Motels::all();
         $typeRooms = TypeRooms::all();
         return view('admin.rooms.update', [
             'room' => $room,
             'motels' => $motels,
-            'typeRooms' => $typeRooms
+            'typeRooms' => $typeRooms,
+            'users' => $users,
         ]);
     }
 
@@ -99,7 +107,9 @@ class RoomController extends Controller
             $room->avatar = $avatar_name;
         }
 
+        $userID = Motels::where('id', $room->motelID)->user->id;
         $room->motelID = $request->motelID;
+        $room->userID = $userID;
         $room->typeID = $request->typeID;
         $room->priceHour = $request->priceHour;
         $room->priceDay = $request->priceDay;

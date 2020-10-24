@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Banners;
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Motels;
 use Illuminate\Http\Request;
 
@@ -17,7 +18,10 @@ class MotelController extends Controller
     }
 
     public function getCreate(){
-        return view('admin.motels.create');
+        $users = User::where('role',2)->get();
+        return view('admin.motels.create',[
+            'users'=>$users,
+        ]);
     }
 
     public function postCreate(Request $request){
@@ -46,6 +50,7 @@ class MotelController extends Controller
 
         $motel = new Motels();
 
+        $motel->userID = $request->userID;
         $motel->name = $request->name;
         $motel->avatar = $images_name;
         $motel->address = $request->address;
@@ -89,6 +94,7 @@ class MotelController extends Controller
             $motel->avatar = $images_name;
         }
 
+        $motel->userID = $request->userID;
         $motel->name = $request->name;
         $motel->address = $request->address;
         $motel->phoneNumber = $request->phoneNumber;
