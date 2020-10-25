@@ -81,6 +81,10 @@
                     </label>
 
                     <div>
+                        <a href="{{ url('/') }}">
+                            {{ __('Trang chủ') }}
+                        </a>
+                        /
                         <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('register') }}">
                             {{ __('Đăng ký') }}
                         </a>

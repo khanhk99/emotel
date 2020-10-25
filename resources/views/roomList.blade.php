@@ -1,8 +1,6 @@
 @extends('layouts.main')
 @section('content')
-
     <div id="headerCover" style="background-color: rgba(0, 0, 0, 1); height: 90px;"></div>
-
     <div class="motelRooms">
         <div class="container">
             <h3 class="headLine">Danh sách phòng</h3>
@@ -44,9 +42,19 @@
                                     </div>
                                 </td>
                             </tr>
+                            @php
+                                $avatar_room = explode('--', $room->avatar);
+                            @endphp
+                            <tr>
+                                <td>Ảnh phòng</td>
+                                <td>
+                                    <img src="{{ asset('assets/images/'. $avatar_room[1]) }}" alt="" width="300px">
+                                </td>
+                            </tr>
                             <tr>
                                 <td colspan="2">
-                                    <button class="btn btn-danger" href="tel:{{ $room->motel->phoneNumber }}">Đặt ngay
+                                    <button class="btn btn-danger">
+                                        <a href="tel:{{ $room->motel->phoneNumber }}" style="color:#ffffff;">Đặt ngay</a>
                                     </button>
                                 </td>
                             </tr>

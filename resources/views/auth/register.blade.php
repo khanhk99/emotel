@@ -104,6 +104,10 @@
 
                 <div class="flex-sb-m w-full p-t-3 p-b-32">
                     <div class="contact100-form-checkbox">
+                        <a href="{{ url('/') }}">
+                            {{ __('Trang chủ') }}
+                        </a>
+                        /
                         <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
                             {{ __('Đã có tài khoản?') }}
                         </a>

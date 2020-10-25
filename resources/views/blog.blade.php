@@ -25,6 +25,7 @@
                                 <img
                                     src="{{ asset('assets/images/'.$post->avatar) }}"
                                     alt=""
+                                    height="262px"
                                 />
                                 <div class="singlePost__content">
                                     @php

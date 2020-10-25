@@ -93,6 +93,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'checkAdmin'], function () {
 //Frontend
 Route::get('/', 'App\Http\Controllers\HomeController@index');
 Route::get('posts', 'App\Http\Controllers\NewsController@index');
+Route::get('motels', 'App\Http\Controllers\MotelController@index');
 Route::get('posts/detail/{id}', 'App\Http\Controllers\NewsController@detail');
 Route::get('motels/detail/{id}', 'App\Http\Controllers\MotelController@detail');
 Route::get('roomList/{motelID}', 'App\Http\Controllers\MotelController@roomList');

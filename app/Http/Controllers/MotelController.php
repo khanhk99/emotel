@@ -9,7 +9,10 @@ use Illuminate\Http\Request;
 class MotelController extends Controller
 {
     public function index(){
-
+        $motels = Motels::paginate(6);
+        return view('listMotel',[
+            'motels' => $motels
+        ]);
     }
 
     public function detail($id){

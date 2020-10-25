@@ -94,7 +94,6 @@ class MotelController extends Controller
             $motel->avatar = $images_name;
         }
 
-        $motel->userID = $request->userID;
         $motel->name = $request->name;
         $motel->address = $request->address;
         $motel->phoneNumber = $request->phoneNumber;

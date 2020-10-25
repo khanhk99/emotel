@@ -15,7 +15,7 @@
                     <p>Combo khách sạn - vé máy bay - đưa đón sân bay giá tốt nhất</p>
                 </div>
                 <div class="find-motel d-flex justify-content-center">
-                    <button class="find-btn"><i class="fas fa-map-marker-alt"></i> Tìm kiếm gần đây</button>
+                    <button class="find-btn"><a href="javascript:void(0)" onclick="checkGPS();" style="color: #000000"><i class="fas fa-map-marker-alt"></i> Tìm kiếm gần đây</a></button>
                     <button class="find-btn" data-toggle="modal" data-target="#myModal"><i class="fas fa-edit"></i> Nhập địa chỉ</button>
                 </div>
             </div>
@@ -115,11 +115,13 @@
                                         <img
                                             src="{{ asset('assets/images/'. $avatar_motel[1]) }}"
                                             alt=""
+                                            height="170px"
                                         />
                                     @else
                                         <img
                                             src="{{ asset('assets/images/'. $avatar_motel[0]) }}"
                                             alt=""
+                                            height="170px"
                                         />
                                     @endif
                                     <div class="singlePost__content">
@@ -142,7 +144,7 @@
                 <!-- If we need scrollbar -->
                 <div class="swiper-scrollbar"></div>
             </div>
-            <a href="#" class="more">Xem thêm</a>
+            <a href="{{ url('motels') }}" class="more">Xem thêm</a>
         </div>
     </div>
 
@@ -241,6 +243,7 @@
                                 <img
                                     src="{{ asset('assets/images/'. $post->avatar) }}"
                                     alt=""
+                                    height="262px"
                                 />
                                 <div class="singlePost__content">
                                     @php

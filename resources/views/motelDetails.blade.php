@@ -105,7 +105,7 @@
         <div class="container">
             <h3 class="headLine">Mô tả nhà nghỉ</h3>
             <div class="s-content">
-                {{$motel->description}}
+                {!! $motel->description !!}
             </div>
         </div>
     </div>
